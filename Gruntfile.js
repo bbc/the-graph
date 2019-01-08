@@ -40,7 +40,7 @@
             'dist/vendor.js': ['./vendor.js'],
           },
           options: {
-            external: externals
+            require: externals
           }
         },
         libs: {
@@ -60,7 +60,7 @@
             'dist/the-graph-render.js': ['render.jsjob.js'],
           },
           options: {
-            external: externals,
+            external: [],
             transform: ['coffeeify', 'browserify-css'],
             browserifyOptions: {
               standalone: 'TheGraphRender'
