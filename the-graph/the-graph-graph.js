@@ -625,9 +625,7 @@ module.exports.register = function(context) {
             source.metadata.label +
             "() " +
             edge.from.port.toUpperCase() +
-            (edge.from.hasOwnProperty("index")
-              ? "[" + edge.from.index + "]"
-              : "") +
+            (edge.from.hasOwnProperty("index") ? "[" + edge.from.index + "]" : "") +
             " -> " +
             edge.to.port.toUpperCase() +
             (edge.to.hasOwnProperty("index") ? "[" + edge.to.index + "]" : "") +
@@ -638,9 +636,7 @@ module.exports.register = function(context) {
             edge.from.node +
             "() " +
             edge.from.port.toUpperCase() +
-            (edge.from.hasOwnProperty("index")
-              ? "[" + edge.from.index + "]"
-              : "") +
+            (edge.from.hasOwnProperty("index") ? "[" + edge.from.index + "]" : "") +
             " -> " +
             edge.to.port.toUpperCase() +
             (edge.to.hasOwnProperty("index") ? "[" + edge.to.index + "]" : "") +
@@ -696,9 +692,7 @@ module.exports.register = function(context) {
             data === true ||
             data === false ||
             type === "number" ||
-            type === "string"
-              ? data
-              : type;
+            type === "string" ? data : type;
 
           var iipOptions = {
             graph: graph,
@@ -1089,9 +1083,7 @@ module.exports.register = function(context) {
         ];
 
         var selectedClass =
-          this.state.forceSelection || selectedIds.length > 0
-            ? " selection"
-            : "";
+          this.state.forceSelection || selectedIds.length > 0 ? " selection" : "";
 
         var containerOptions = TheGraph.merge(TheGraph.config.graph.container, {
           className: "graph" + selectedClass

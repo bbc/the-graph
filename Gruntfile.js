@@ -69,11 +69,12 @@
         }
       },
       jshint: {
-        options: { 
+        options: {
           extract: 'auto',
           strict: false,
           newcap: false,
-          "globals": { "Polymer": true }
+          "globals": { "Polymer": true },
+          esversion: 6
         },
         all: {
           src: sources.scripts

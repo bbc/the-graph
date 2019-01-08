@@ -8,11 +8,7 @@ var ModalBG = require("./the-graph-modalbg").ModalBG;
 var geometryutils = require("./geometryutils");
 
 // Trivial polyfill for Polymer/webcomponents/shadowDOM element unwrapping
-var unwrap = window.unwrap
-  ? window.unwrap
-  : function(e) {
-      return e;
-    };
+var unwrap = window.unwrap ? window.unwrap : function(e) { return e; };
 
 var hotKeys = {
   // Escape
@@ -672,11 +668,7 @@ module.exports.register = function(context) {
         var transform = "matrix(" + sc + ",0,0," + sc + "," + x + "," + y + ")";
 
         var scaleClass =
-          sc > TheGraph.zbpBig
-            ? "big"
-            : sc > TheGraph.zbpNormal
-              ? "normal"
-              : "small";
+          sc > TheGraph.zbpBig ? "big" : sc > TheGraph.zbpNormal ? "normal" : "small";
 
         var contextMenu = null;
         var getMenuDef = this.props.getMenuDef || this.defaultGetMenuDef;
