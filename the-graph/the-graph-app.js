@@ -344,8 +344,8 @@ module.exports.register = function(context) {
         if (this.props.onPanScale) {
           const svg = ReactDOM.findDOMNode(this.refs.svg);
 
-          const width = svg.getAttribute('width');
-          const height = svg.getAttribute('height');
+          const width = parseInt(svg.getAttribute('width'));
+          const height = parseInt(svg.getAttribute('height'));
 
           const sx = this.state.x / -this.state.scale;
           const sy = this.state.y / -this.state.scale;
