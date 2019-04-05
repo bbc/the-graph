@@ -347,19 +347,22 @@ module.exports.register = function(context) {
           const width = parseInt(svg.getAttribute('width'));
           const height = parseInt(svg.getAttribute('height'));
 
+          const sw = width * (1 / this.state.scale);
+          const sh = height * (1 / this.state.scale);
+
           const sx = this.state.x / -this.state.scale;
           const sy = this.state.y / -this.state.scale;
 
           const camera = {
             left: sx,
-            right: sx + width,
+            right: sx + sw,
             top: sy,
-            bottom: sy + height,
+            bottom: sy + sh,
             x: sy,
             y: sy,
             center: {
-              x: sx + (width / 2),
-              y: sy + (height / 2)
+              x: sx + (sw / 2),
+              y: sy + (sh / 2)
             }
           };
 
