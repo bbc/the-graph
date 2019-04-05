@@ -342,13 +342,13 @@ module.exports.register = function(context) {
       onPanScale: function(e) {
         // Pass pan/scale out to the-graph
         if (this.props.onPanScale) {
-          const svg = ReactDOM.findDOMNode(this.refs.svg)
+          const svg = ReactDOM.findDOMNode(this.refs.svg);
 
-          const width = svg.getAttribute('width')
-          const height = svg.getAttribute('height')
+          const width = svg.getAttribute('width');
+          const height = svg.getAttribute('height');
 
-          const sx = this.state.x / -this.state.scale
-          const sy = this.state.y / -this.state.scale
+          const sx = this.state.x / -this.state.scale;
+          const sy = this.state.y / -this.state.scale;
 
           const camera = {
             left: sx,
@@ -361,7 +361,7 @@ module.exports.register = function(context) {
               x: sx + (width / 2),
               y: sy + (height / 2)
             }
-          }
+          };
 
           this.props.onPanScale(this.state.x, this.state.y, this.state.scale, camera);
         }
