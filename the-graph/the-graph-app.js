@@ -339,10 +339,31 @@ module.exports.register = function(context) {
 
         this.setState({ trackStartX: null, trackStartY: null });
       },
-      onPanScale: function() {
+      onPanScale: function(e) {
         // Pass pan/scale out to the-graph
         if (this.props.onPanScale) {
-          this.props.onPanScale(this.state.x, this.state.y, this.state.scale);
+          const svg = ReactDOM.findDOMNode(this.refs.svg)
+
+          const width = svg.getAttribute('width')
+          const height = svg.getAttribute('height')
+
+          const sx = this.state.x / -this.state.scale
+          const sy = this.state.y / -this.state.scale
+
+          const camera = {
+            left: sx,
+            right: sx + width,
+            top: sy,
+            bottom: sy + height,
+            x: sy,
+            y: sy,
+            center: {
+              x: sx + (width / 2),
+              y: sy + (height / 2)
+            }
+          }
+
+          this.props.onPanScale(this.state.x, this.state.y, this.state.scale, camera);
         }
       },
       defaultGetMenuDef: function(options) {
