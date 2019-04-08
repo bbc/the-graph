@@ -87,7 +87,7 @@ TheGraph.tooltip = require("./the-graph/the-graph-tooltip.js");
 // compat
 TheGraph.Tooltip = TheGraph.tooltip.Tooltip;
 TheGraph.config.tooltip = TheGraph.tooltip.config;
-TheGraph.factories.tooltip = TheGraph.tooltip.factories; 
+TheGraph.factories.tooltip = TheGraph.tooltip.factories;
 
 TheGraph.mixins = require("./the-graph/mixins.js");
 TheGraph.arcs = require('./the-graph/arcs.js');

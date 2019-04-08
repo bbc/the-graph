@@ -1,6 +1,6 @@
 var React = require('react');
 
-var SVGImage = require('./SVGImage'); 
+var SVGImage = require('./SVGImage');
 
 // Standard functions for creating SVG/HTML elements
 exports.createGroup = function(options, content) {
@@ -42,7 +42,6 @@ exports.createCanvas = function(options) {
 };
 
 exports.createSvg = function(options, content) {
-
   var args = ['svg', options];
 
   if (Array.isArray(content)) {

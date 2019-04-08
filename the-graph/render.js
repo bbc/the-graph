@@ -37,7 +37,7 @@ function applyStyleManual(element) {
         if (s) {
             element.style[name] = s;
         }
-    }); 
+    });
 }
 
 // FIXME: icons are broken
@@ -82,7 +82,7 @@ function renderImage(graphElement, options, callback) {
 
     var img = new Image();
     var svg = new Blob([svgData], {type: 'image/svg+xml'});
-    var svgUrl = DOMURL.createObjectURL(svg);   
+    var svgUrl = DOMURL.createObjectURL(svg);
 
     var canvas = document.createElement('canvas');
     canvas.width = svgNode.getAttribute('width');
@@ -114,7 +114,7 @@ function renderImage(graphElement, options, callback) {
 
 function libraryFromGraph(graph) {
     var components = {};
-    var processComponents = {}; 
+    var processComponents = {};
 
     graph.nodes.forEach(function(process) {
         var name = process.component;
@@ -165,13 +165,12 @@ function removeAllChildren(n) {
 }
 
 function renderGraph(graph, options) {
-    if (!options.library) { options.library = libraryFromGraph(graph); } 
+    if (!options.library) { options.library = libraryFromGraph(graph); }
     if (!options.theme) { options.theme = 'the-graph-dark'; }
     if (!options.width) { options.width = 1200; }
     if (!options.margin) { options.margin = 72; }
 
     // TODO support doing autolayout. Default to on if graph is missing x/y positions
-    // TODO: Set zoom-level, width,height so that whole graph shows with all info 
 
     // fit based on width constrained (height near infinite)
     var fit = geometryutils.findFit(graph, options.width, options.width*100, options.margin);
@@ -180,7 +179,6 @@ function renderGraph(graph, options) {
         // calculate needed aspect ratio
         options.height = options.width / aspectRatio;
     }
-    console.log('f', aspectRatio, options.height, JSON.stringify(fit));
 
     var props = {
         readonly: true,
@@ -189,14 +187,13 @@ function renderGraph(graph, options) {
         graph: graph,
         library: options.library,
     };
-    //console.log('render', props);
 
     var wrapper = document.createElement('div');
     wrapper.className = options.theme;
     wrapper.width = props.width;
     wrapper.height = props.height;
 
-    // FIXME: find a less intrusive way  
+    // FIXME: find a less intrusive way
     var container = document.body;
     removeAllChildren(container);
     container.appendChild(wrapper);
@@ -213,5 +210,3 @@ module.exports = {
     exportImage: renderImage,
     register: register,
 };
-
-
