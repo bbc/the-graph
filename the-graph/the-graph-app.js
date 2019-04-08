@@ -497,7 +497,7 @@ module.exports.register = function(context) {
         this.setState({
           width,
           height
-        })
+        });
       },
       componentDidMount: function() {
         var domNode = ReactDOM.findDOMNode(this.refs.svg);
@@ -521,7 +521,7 @@ module.exports.register = function(context) {
         });
 
         // listen for resize events
-        window.addEventListener('resize', this.onWindowResize)
+        window.addEventListener('resize', this.onWindowResize);
 
         // Gesture event for pan
         domNode.addEventListener("panstart", this.onTrackStart);
