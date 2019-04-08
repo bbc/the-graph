@@ -491,6 +491,14 @@ module.exports.register = function(context) {
         this.refs.graph.edgeStart(event);
         this.hideContext();
       },
+      onWindowResize: function({ target }) {
+        const width = target.innerWidth;
+        const height = target.innerHeight;
+        this.setState({
+          width,
+          height
+        })
+      },
       componentDidMount: function() {
         var domNode = ReactDOM.findDOMNode(this.refs.svg);
 
@@ -511,6 +519,9 @@ module.exports.register = function(context) {
             [Hammer.Pinch, {}]
           ]
         });
+
+        // listen for resize events
+        window.addEventListener('resize', this.onWindowResize)
 
         // Gesture event for pan
         domNode.addEventListener("panstart", this.onTrackStart);
@@ -682,9 +693,6 @@ module.exports.register = function(context) {
         });
       },
       render: function() {
-        // console.timeEnd("App.render");
-        // console.time("App.render");
-
         // pan and zoom
         var sc = this.state.scale;
         var x = this.state.x;
